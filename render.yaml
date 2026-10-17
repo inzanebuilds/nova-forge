@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: nova-forge-workspace
+    runtime: node
+    plan: free
+    buildCommand: npm --prefix server run check
+    startCommand: npm --prefix server start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NOVA_HOST
+        value: 0.0.0.0
+      - key: NOVA_STATIC_BUNDLE_ENABLED
+        value: "true"
+      - key: NOVA_BUILD_WORKER_ENABLED
+        value: "false"
+      - key: NOVA_ACCESS_TOKEN
+        generateValue: true

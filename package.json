@@ -1,0 +1,14 @@
+{
+  "name": "nova-forge-server",
+  "version": "0.6.0",
+  "private": true,
+  "description": "Optional local API, model adapter, and isolated Docker build worker for NOVA FORGE",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node ../tests/smoke.js && node ../tests/preflight-smoke.js && node ../tests/build-worker-smoke.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
